@@ -1,0 +1,49 @@
+.container{
+    position: relative;
+    width: 100%;
+    font-family: 'Trebuchet MS', sans-serif;
+    color: #f4a261;
+    font-size: 9.3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.info-container{
+    font-size: 3.5vh;
+    margin: 1vw;
+    margin-left: 12vh;
+    width: 60%;
+}
+.logos-container{
+    display: flex;
+    justify-content: center;
+    font-size: 10vw;
+}
+.custom-logo{
+    margin: 5vw;
+}
+.fb {
+    transition: all 1s;
+}
+.wapp {
+    transition: all 1.7s;
+}
+.telegram {
+    transition: all 1s;
+}
+.fb:hover {
+    color:#3b5998;
+    transform: scale(1.2);
+    transform: rotateZ(360deg);
+}
+.wapp:hover {
+    color: #25D366;
+    transform: scale(1.2);
+    transform: rotateZ(360deg);
+}
+.telegram:hover {
+    color:#31abe7;
+    transform: scale(1.2);
+    transform: rotate(360deg);
+}

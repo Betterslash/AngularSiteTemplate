@@ -1,0 +1,69 @@
+jw-modal {
+    /* modals are hidden by default */
+    display: none;
+
+    .jw-modal {
+        /* modal container fixed across whole screen */
+        position: fixed;
+        left: 20%;
+        top: 5%;
+       
+        transform : traslate(-50%, -50%);
+        /* z-index must be higher than .jw-modal-background */
+        z-index: 1000;
+        
+        /* enables scrolling for tall modals */
+        overflow: auto;
+
+        .jw-modal-body {
+            box-shadow:  1px 2px  #f4a261, 0 0 25px #e76f51, 0 0 5px #264653;
+            background-color: #2a9d8f;
+            background-color: #264653;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%232a9d8f' fill-opacity='0.47' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+            display: flex;
+            /* margin exposes part of the modal background */
+            margin: 4vw;
+            border-radius: 10px;
+            flex-direction: column;
+            justify-content: flex-start;
+            max-width: 65vw;
+        
+        }
+    }
+
+    .jw-modal-background {
+        /* modal background fixed across whole screen */
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        /* semi-transparent black  */
+        background-color: #000;
+        opacity: 0.65;
+        
+        /* z-index must be below .jw-modal and above everything else  */
+        z-index: 900;
+    }
+}
+
+body.jw-modal-open {
+    /* body overflow is hidden to hide main scrollbar when modal window is open */
+    overflow: hidden;
+}
+.close-button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 10%;
+    margin-top: 2vh;
+    margin-left: 1vh;
+}
+.decorated{
+    color: #f4a261;
+    transition: all 1s;
+}
+.decorated:hover{
+    color: black;
+}

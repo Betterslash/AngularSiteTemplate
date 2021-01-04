@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class ="container">
+    <div class = "button-container">
+        <button class = "side-bar-button"><i class="fa fa-user"></i></button>
+        <button (click) = "openModal('login-Modal')" class = "side-bar-button smaller" readonly = "readonly"><i class="fa fa-comment"></i></button>
+        <button (click)="openModal('custom-modal-1')" class = "side-bar-button"><i class="fa fa-file smaller-icon"></i></button>
+    </div>
+</div>
+<jw-modal id = "custom-modal-1">
+    <button class="close-button" (click) = "closeModal('custom-modal-1')"><span aria-hidden="true"><i class="decorated fa fa-times-circle"></i></span></button>
+    <app-contact></app-contact>
+</jw-modal>
+<jw-modal id = "login-Modal">
+    <button class="close-button" (click) = "closeModal('login-Modal')"><span aria-hidden="true"><i class="decorated extra fa fa-times-circle"></i></span></button>
+    <app-login-modal></app-login-modal>
+</jw-modal>

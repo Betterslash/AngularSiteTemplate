@@ -1,0 +1,15 @@
+
+    <form class = "form-container" action="/login" method="POST">
+        <label for = "email">Email</label>
+        <input type="email" class = "input-field" name ="email">
+        <label>Text</label>
+        <textarea type="text" class = "input-field" name ="message"></textarea>
+        <nav>
+            <ul>
+              <li (click) = "onSubmit()">
+                Submit
+                <span></span><span></span><span></span><span></span>
+              </li>
+            </ul>
+        </nav>
+    </form>
