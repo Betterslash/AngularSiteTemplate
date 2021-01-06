@@ -115,9 +115,12 @@ nav ul li span:nth-child(4) {
 .decorated{
     color:#e9c46a;
 }
-
+.custom-button{
+    
+}
 @media screen and (max-width: 480px) {
    .custom-input{
        font-size: 4vw;
    }
    }
+

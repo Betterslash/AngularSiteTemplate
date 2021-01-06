@@ -1,11 +1,11 @@
-<form method="post" class = "form-container"> 
+<form class = "form-container" [formGroup]="loginForm" (ngSubmit) = "onSubmit()"> 
     <p class = "logo-show"><i class="fa fa-stack-exchange"></i></p>
-    <input name = "userid" type="text" id="user-id-input" class = "custom-input" placeholder="Username">
-    <input name = "userpass" type="password" id="user-pass-input" class = "custom-input text-area-custom" placeholder="Password">
+    <input  formControlName = "username" class = "custom-input" placeholder="Username"  autocomplete="off">
+    <input  formControlName = "password" class = "custom-input text-area-custom" placeholder="Password"  autocomplete="off">
     <nav>
         <ul>
           <li (click) = "onSubmit()">
-            Login
+           Login
             <span></span><span></span><span></span><span></span>
           </li>
         </ul>

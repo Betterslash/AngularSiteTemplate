@@ -8,6 +8,9 @@ import { ModalModule } from './_modal';
 import { ContactComponent } from './contact/contact.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { MainViewComponent } from './main-view/main-view.component';
+import {AuthenticationService} from './_services/authentication.service'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http'
 
 
 @NgModule({
@@ -22,8 +25,11 @@ import { MainViewComponent } from './main-view/main-view.component';
     BrowserModule,
     AppRoutingModule,
     ModalModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
