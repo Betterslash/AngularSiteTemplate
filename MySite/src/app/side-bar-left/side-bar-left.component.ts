@@ -13,9 +13,19 @@ export class SideBarLeftComponent implements OnInit {
   ngOnInit(): void {
   }
   openModal(modalId : string){
-    this.modalService.open(modalId);
+    if(localStorage.getItem('token') != null){
+      if(localStorage.getItem('token').toString() != 'true'){
+        this.modalService.open(modalId);
+      }
+    }else{
+      this.modalService.open(modalId);
+    }
   }
   closeModal(modalId : string){
     this.modalService.close(modalId);
+  }
+
+  logOut(){
+    localStorage.clear();
   }
 }

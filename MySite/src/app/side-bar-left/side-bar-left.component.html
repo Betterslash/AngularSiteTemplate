@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class ="container">
     <div class = "button-container">
-        <button class = "side-bar-button"><i class="fa fa-user"></i></button>
+        <button (click) = "logOut()" class = "side-bar-button"><i class="fa fa-user"></i></button>
         <button (click) = "openModal('login-Modal')" class = "side-bar-button smaller" readonly = "readonly"><i class="fa fa-comment"></i></button>
         <button (click)="openModal('custom-modal-1')" class = "side-bar-button"><i class="fa fa-file smaller-icon"></i></button>
     </div>

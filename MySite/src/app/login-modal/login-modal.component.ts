@@ -3,8 +3,10 @@ import { FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { ModalService } from '../_modal';
 import { AuthenticationService } from '../_services/authentication.service';
-
-
+import {first} from 'rxjs/operators'
+import { ReCaptchaComponent } from 'angular2-recaptcha';
+import {Router} from '@angular/router'
+import { ViewChild } from '@angular/core'
 @Component({
   selector: 'app-login-modal',
   templateUrl: './login-modal.component.html',
@@ -12,11 +14,17 @@ import { AuthenticationService } from '../_services/authentication.service';
 })
 export class LoginModalComponent implements OnInit {
   loginForm : FormGroup;
-  
-  constructor(private formBuilder : FormBuilder, private modalService : ModalService, private authenticationService : AuthenticationService) {
+  public isCaptchaValidated: boolean = false; //for self loading
+
+  @ViewChild(ReCaptchaComponent) captcha: ReCaptchaComponent;
+  constructor(private router : Router,private formBuilder : FormBuilder, private modalService : ModalService, private authenticationService : AuthenticationService) {
 
    }
-
+   handleCorrectCaptcha($event){}
+   sendCaptchaExecuteHere(){}
+   onCaptchaResponse(event){
+    this.isCaptchaValidated = true;
+  }
   ngOnInit(){
     this.loginForm = this.formBuilder.group({
       username : new FormControl(),
@@ -33,8 +41,16 @@ export class LoginModalComponent implements OnInit {
     return this.loginForm.controls;
   }
   onSubmit(){
-    console.log(this.f.username.value);
-    this.authenticationService.login(this.f.username.value, this.f.password.value);
+  
+    this.authenticationService.login(this.f.username.value, this.f.password.value)
+    .pipe(first())
+    .subscribe(
+      data => {
+        if(localStorage.getItem('token').toString() == 'true'){
+          this.router.navigate(['/']);
+        }
+      }
+    );
   }
 
 }
