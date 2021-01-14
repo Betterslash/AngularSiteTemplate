@@ -6,7 +6,7 @@ import {BehaviorSubject, Observable} from 'rxjs'
 
 @Injectable({providedIn : 'root'})
 export class AuthenticationService{
-    baseUrl = 'http://192.168.1.2:2021/login'
+    baseUrl = 'http://192.168.1.2:8080/login'
     postId;
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;

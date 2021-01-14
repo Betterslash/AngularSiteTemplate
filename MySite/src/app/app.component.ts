@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Router, RoutesRecognized} from '@angular/router'
 import {filter, map} from 'rxjs/operators'
-import { ReCaptchaComponent } from 'angular2-recaptcha';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'MySite';
   routerEventSubscription : any;
   showSidebar: any;
-
+  
   constructor(private _router:Router) {
     this.routerEventSubscription = this._router.events
       .pipe(filter(event => event instanceof RoutesRecognized))
