@@ -16,6 +16,9 @@ import { ReCaptchaModule } from 'angular2-recaptcha';
 // if you need forms support:
 // import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 
+import {HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from 'src/interceptor';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { ReCaptchaModule } from 'angular2-recaptcha';
     HttpClientModule,
     ReCaptchaModule
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService,
+  { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
