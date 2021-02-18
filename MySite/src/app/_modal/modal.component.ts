@@ -1,5 +1,5 @@
-import { Component, ViewEncapsulation, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
-
+import { AfterViewInit } from '@angular/core';
+import { Component, ViewEncapsulation, ElementRef, Input, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { ModalService } from './modal.service';
 
 @Component({ 
@@ -11,10 +11,11 @@ import { ModalService } from './modal.service';
 export class ModalComponent implements OnInit, OnDestroy {
     @Input() id: string;
     private element: any;
-
+    
     constructor(private modalService: ModalService, private el: ElementRef) {
         this.element = el.nativeElement;
     }
+    
 
     ngOnInit(): void {
         // ensure id attribute exists

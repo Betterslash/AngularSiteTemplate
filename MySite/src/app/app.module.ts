@@ -15,11 +15,16 @@ import { LoggedInPageComponent } from './logged-in-page/logged-in-page.component
 import { ReCaptchaModule } from 'angular2-recaptcha';
 // if you need forms support:
 // import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from 'src/interceptor';
-
-
+import { ErrorInterceptor } from './_helpers/error.interceptor';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './routes.routing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,13 +38,19 @@ import { JwtInterceptor } from 'src/interceptor';
     BrowserModule,
     AppRoutingModule,
     ModalModule,
-    FormsModule,
+    FormsModule, RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
     HttpClientModule,
-    ReCaptchaModule
+    ReCaptchaModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatAutocompleteModule
   ],
   providers: [AuthenticationService,
-  { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

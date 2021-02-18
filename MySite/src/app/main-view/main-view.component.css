@@ -8,12 +8,13 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    top: 5vh;
 }
 .info-container{
     font-size: 3.5vh;
     margin: 1vw;
     margin-left: 12vh;
-    width: 60%;
+    width: 70%;
 }
 .logos-container{
     display: flex;

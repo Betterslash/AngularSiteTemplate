@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Router, RoutesRecognized} from '@angular/router'
 import {filter, map} from 'rxjs/operators'
+import { User } from './_common/user.model';
+import { AuthenticationService } from './_services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +13,9 @@ export class AppComponent {
   title = 'MySite';
   routerEventSubscription : any;
   showSidebar: any;
+  currentUser:User;
   
-  constructor(private _router:Router) {
+  constructor(private _router:Router,  private authenticationService: AuthenticationService) {
     this.routerEventSubscription = this._router.events
       .pipe(filter(event => event instanceof RoutesRecognized))
       .pipe(map((event: RoutesRecognized) => {
@@ -21,4 +24,8 @@ export class AppComponent {
         this.showSidebar = showSidebar;
       });
   }
+  logout() {
+    this.authenticationService.logout();
+    this._router.navigate(['/login']);
+}
 }

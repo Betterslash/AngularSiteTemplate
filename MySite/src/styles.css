@@ -15,3 +15,5 @@ background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox=
 		background-position: 0% 50%;
 	}
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

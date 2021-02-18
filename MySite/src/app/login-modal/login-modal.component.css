@@ -1,36 +1,15 @@
-.form-container{
+.field-containers{
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
-    border : none;
-    width : 100%;
-    overflow: hidden;
 }
-.custom-input{
-    min-width: 18vw;
-    margin : 4.5vh;
-    background-color: transparent;
-    color: white;
-    border: transparent;
-    outline: none;
-    border-bottom:4px solid  #e9c46a;
-    font-size: 20px;
-    color: #e9c46a;
+.example-full-width{
+    width: 90%;
+    justify-self: center;
 }
-::-webkit-input-placeholder { /* Edge */
-    font-size: 20px;
-    color:  #e9c56a77;
-  }
-  
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    font-size: 20px;
-    color:   #e9c56a77;
-  }
-  
-::placeholder {
-    font-size: 20px;
-    color:   #e9c56a77;
+.example-button-row{
+    margin-bottom: 8px;
 }
 
 .logo-show{
@@ -45,82 +24,9 @@
 }
 
 
-
-nav{
-    grid-column: 2/2;
+.recaptcha-scale{
+    transform:scale(0.9);
+    -webkit-transform:scale(0.9);
+    transform-origin:0 0;
+    -webkit-transform-origin:0 0;
 }
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    --c:  #e9c46a;
-    color: var(--c);
-    font-size: 16px;
-    border: 0.3em solid var(--c);
-    border-radius: 0.5em;
-    width: 7em;
-    height: 3em;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-family: sans-serif;
-    letter-spacing: 0.1em;
-    text-align: center;
-    line-height: 3em;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    transition: 0.5s;
-    margin: 1em;
-}
-
-nav ul li span {
-    position: absolute;
-    width: 25%;
-    height: 100%;
-    background-color: var(--c);
-    transform: translateY(150%);
-    border-radius: 50%;
-    left: calc((var(--n) - 1) * 25%);
-    transition: 0.5s;
-    transition-delay: calc((var(--n) - 1) * 0.1s);
-    z-index: -1;
-}
-
-nav ul li:hover {
-    color: black;
-}
-
-nav ul li:hover span {
-    transform: translateY(0) scale(2);
-}
-
-nav ul li span:nth-child(1) {
-    --n: 1;
-}
-
-nav ul li span:nth-child(2) {
-    --n: 2;
-}
-
-nav ul li span:nth-child(3) {
-    --n: 3;
-}
-
-nav ul li span:nth-child(4) {
-    --n: 4;
-}
-.decorated{
-    color:#e9c46a;
-}
-.custom-button{
-    
-}
-@media screen and (max-width: 480px) {
-   .custom-input{
-       font-size: 4vw;
-   }
-   }
-
