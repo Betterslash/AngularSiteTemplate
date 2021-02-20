@@ -66,6 +66,7 @@ export class LoginModalComponent implements OnInit {
         .subscribe(
           () => {
             this.router.navigate(['/logged-in']);
+            this.modalService.close('login-Modal');
           },
           error => {
             this.alertService.error(error);

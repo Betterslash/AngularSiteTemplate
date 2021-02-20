@@ -1,0 +1,30 @@
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin-top: 1vh;
+    margin-left: 14vw;
+    border: none;
+}
+.card-wrapper{
+    width : 100%;
+    background-color: transparent;
+    border: none;
+}
+.toolbar-wrapper{
+    width: 100%;
+    background-color: teal;
+    font-size: 2vh;
+    border-radius: 4px;
+}
+.inside-card-wrapper{
+    background-color: #2b9a8f;
+}
+.mat-tab-label{
+    margin-right: 3vw;
+}
+.mat-tab-labels{
+    justify-content: center;
+    align-items: center;
+}

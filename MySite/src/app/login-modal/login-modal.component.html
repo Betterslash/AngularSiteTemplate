@@ -1,4 +1,4 @@
-<form class="form-container">
+<form class="form-container" (ngSubmit)="onSubmit()">
   <div class = "field-containers">
   <mat-form-field class="example-full-width">
     <mat-label>Username</mat-label>
@@ -22,11 +22,11 @@
       </mat-option>
     </mat-autocomplete> -->
   </mat-form-field>
-  <div class="example-button-row" ngSubmit="onSubmit()">
-    <button mat-raised-button color = "accent">Login</button>
+  <div class="example-button-row" >
+    <button type = "submit" mat-raised-button style="background-color: #347478; color: white;">Login</button>
   </div>
   <div class="example-button-row">
-    <button mat-raised-button color = "accent">Register</button>
+    <button mat-raised-button color = "accent" style="background-color: #347478; color: white;">Register</button>
   </div>
   <div class = "recaptcha-scale">
     <re-captcha (captchaResponse)="handleCorrectCaptcha($event)" (loaded)="sendCaptchaExecuteHere()" site_key="6LdF_yQaAAAAAIzytD7m6wjs5i6ckihJvpIyV1Ld"></re-captcha>

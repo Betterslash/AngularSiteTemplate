@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalService } from '../_modal';
 
 @Component({
@@ -7,25 +8,26 @@ import { ModalService } from '../_modal';
   styleUrls: ['./side-bar-left.component.css']
 })
 export class SideBarLeftComponent implements OnInit {
-  constructor(private modalService : ModalService) {
+  constructor(private modalService : ModalService, private _router:Router) {
   }
 
   ngOnInit(): void {
+    
   }
   openModal(modalId : string){
-    if(localStorage.getItem('token') != null){
-      if(localStorage.getItem('token').toString() != 'true'){
-        this.modalService.open(modalId);
+    if(localStorage.getItem('currentUser')){
+      if(modalId === 'login-Modal'){
+          this._router.navigate(['/logged-in']);
+          return;
       }
-    }else{
-      this.modalService.open(modalId);
     }
+   this.modalService.open(modalId);
   }
   closeModal(modalId : string){
     this.modalService.close(modalId);
   }
 
   logOut(){
-    localStorage.clear();
+    //localStorage.clear();
   }
 }
